@@ -16,8 +16,7 @@ namespace OnlineShoppingCartSystem.Models
         [Display(Name ="Mode Of Payment")]
         public string ModeOfPayment { get; set; }
 
-        [Display(Name ="Card Id")]
-        public int CardId { get; set; }
+        
 
         [Display(Name ="Total Amount")]
         public double TotalAmount { get; set; }
@@ -25,7 +24,6 @@ namespace OnlineShoppingCartSystem.Models
         [ValidateNever]
         public Users Users { get; set; }
        
-        [ValidateNever]
-        public Cards Cards { get; set; }
+        
     }
 }
