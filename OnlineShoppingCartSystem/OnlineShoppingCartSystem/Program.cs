@@ -11,7 +11,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<OnlineShoppingCartDBContext>(options =>
 {
-    options.UseSqlServer(builder.Configuration.GetConnectionString("CapgLeftShift"));
+    options.UseSqlServer(builder.Configuration.GetConnectionString("ProjectTeam"));
 });
 
 var app = builder.Build();
