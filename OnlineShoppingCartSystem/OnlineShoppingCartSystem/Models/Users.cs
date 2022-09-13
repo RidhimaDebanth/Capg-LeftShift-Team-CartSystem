@@ -7,8 +7,13 @@ namespace OnlineShoppingCartSystem.Models
     {
         [Key]
         public int Id { get; set; }
-        
-        [Required(ErrorMessage ="Name field is required")]
+
+        [Required]
+
+        [Display(Name = "Role")]
+        public string Role { get; set; } 
+
+        [Required(ErrorMessage = "Name field is required")]
         public string Name { get; set; }
         
         [Required(ErrorMessage ="Username is required")]
@@ -21,6 +26,7 @@ namespace OnlineShoppingCartSystem.Models
         public string Email { get; set; }
        
         [Required(ErrorMessage ="Phone Number is required")]
+        [RegularExpression(@"^([0-9]{10})$", ErrorMessage = "Please Enter Valid Phone Number.")]
         [Display(Name="Phone Number")]
         public long PhoneNo { get; set; }
 
@@ -38,12 +44,9 @@ namespace OnlineShoppingCartSystem.Models
         [DataType(DataType.Password)]  
         public string  ConfirmPass { get; set; }
 
-        [Required]
-        [Display (Name="Role Id")]
-        public int RoleId { get; set; }
+        
 
-        [ValidateNever]
-        public Roles Roles { get; set; }
+        
 
     }
 }

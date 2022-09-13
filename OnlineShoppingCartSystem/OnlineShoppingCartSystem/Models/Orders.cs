@@ -10,7 +10,17 @@ namespace OnlineShoppingCartSystem.Models
 
        
         [Display(Name ="Customers's Id")]
-        public int UsersId { get; set; }    
+        public int UsersId { get; set; }   
+
+        [Display(Name ="Product Id")]
+        public int ProductId { get; set; }
+
+        [Display(Name ="Product Name")]
+        public int ProductName { get; set; }
+
+        [ValidateNever]
+        [Display(Name ="Image")]
+        public string ProductImage { get; set; }
         
 
         [Display(Name ="Mode Of Payment")]
@@ -23,6 +33,9 @@ namespace OnlineShoppingCartSystem.Models
 
         [ValidateNever]
         public Users Users { get; set; }
+
+        [ValidateNever]
+        public Product Product { get; set; }
        
         
     }
