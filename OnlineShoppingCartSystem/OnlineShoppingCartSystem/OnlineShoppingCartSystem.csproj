@@ -18,7 +18,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repository\Account\" />
     <Folder Include="Repository\Customer\" />
     <Folder Include="Repository\AdminProduct\" />
     <Folder Include="Services\Customer\" />
