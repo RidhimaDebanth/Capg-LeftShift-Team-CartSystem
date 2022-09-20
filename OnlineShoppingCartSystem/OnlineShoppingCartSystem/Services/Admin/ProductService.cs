@@ -1,6 +1,6 @@
 ﻿namespace OnlineShoppingCartSystem.Services.Admin
 {
-    public class Product
+    public class ProductService
     {
     }
 }

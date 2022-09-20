@@ -3,7 +3,7 @@ using OnlineShoppingCartSystem.Repository.AdminCategory;
 
 namespace OnlineShoppingCartSystem.Services.Admin
 {
-    public class Category
+    public class CategoryService
     {
 
     }

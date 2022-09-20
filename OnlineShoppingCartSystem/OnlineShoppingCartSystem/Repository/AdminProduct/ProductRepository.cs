@@ -10,8 +10,8 @@ namespace OnlineShoppingCartSystem.Repository.AdminProduct
 
         public async Task Delete(Product entity)
         {
-            //throw new NotImplementedException();
-            var product = await context.Products.FirstOrDefaultAsync(b => b.Id == entity.Id);
+            
+            var product = await context.Products.FirstOrDefaultAsync(p => p.Id == entity.Id);
             if (product != null)
             {
                 context.Remove(entity);
@@ -20,45 +20,45 @@ namespace OnlineShoppingCartSystem.Repository.AdminProduct
 
         public async Task<IEnumerable<Product>> GetAll()
         {
-            //throw new NotImplementedException();
-            return await context.Products.Include(b => b.Id)
-                                            .Include(b => b.Name)
-                                            .Include(b => b.ProductDescription)
-                                            .Include(b => b.Price)
-                                            .Include(b => b.ProductImage)
-                                            .Include(b => b.CategoryId)
-                                             .ToListAsync();
+           
+            return await context.Products.Include(p => p.Id)
+                                            .Include(p => p.Name)
+                                            .Include(p => p.ProductDescription)
+                                            .Include(p => p.Price)
+                                            .Include(p => p.ProductImage)
+                                            .Include(p => p.CategoryId)
+                                            .ToListAsync();
         }
 
         public async Task<Product> GetById(int id)
         {
-            //throw new NotImplementedException();
+            
             return await context.Products.FindAsync(id);
         }
 
         public async Task<Product> GetByName(string name)
         {
-            //throw new NotImplementedException();
+            
             return await context.Products.FindAsync(name);
         }
 
         public async Task<Product> Insert(Product entity)
         {
-            //throw new NotImplementedException();
+
             await context.Products.AddAsync(entity);
             return entity;
         }
 
         public async Task Save()
         {
-            //throw new NotImplementedException();
+            
             await context.SaveChangesAsync();
         }
 
         public async Task<Product> Update(Product entity)
         {
             //throw new NotImplementedException();
-            var product = await context.Products.FirstOrDefaultAsync(b => b.Name == entity.Name);
+            var product = await context.Products.FirstOrDefaultAsync(p => p.Name == entity.Name);
             if (product != null)
             {
                 product.Name = entity.Name;
