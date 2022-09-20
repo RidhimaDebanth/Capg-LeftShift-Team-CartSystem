@@ -20,7 +20,8 @@
   <ItemGroup>
     <Folder Include="Repository\Account\" />
     <Folder Include="Repository\Customer\" />
-    <Folder Include="Repository\Admin\" />
+    <Folder Include="Repository\AdminProduct\" />
+    <Folder Include="Repository\AdminCategory\" />
     <Folder Include="Services\" />
   </ItemGroup>
 
