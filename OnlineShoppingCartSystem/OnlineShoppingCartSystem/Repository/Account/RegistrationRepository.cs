@@ -7,7 +7,7 @@ namespace OnlineShoppingCartSystem.Repository.Account
         public RegistrationRepository(OnlineShoppingCartDBContext context) => this.context = context;
 
 
-
+        
         public Task Delete(Users entity)
         {
             throw new NotImplementedException();
