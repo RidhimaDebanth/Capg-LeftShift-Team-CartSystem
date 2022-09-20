@@ -21,7 +21,7 @@
     <Folder Include="Repository\Account\" />
     <Folder Include="Repository\Customer\" />
     <Folder Include="Repository\AdminProduct\" />
-    <Folder Include="Services\" />
+    <Folder Include="Services\Customer\" />
   </ItemGroup>
 
 </Project>
