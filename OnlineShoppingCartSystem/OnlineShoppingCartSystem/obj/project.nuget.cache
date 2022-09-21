@@ -1,8 +1,14 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "B4YnOmSt2BCrhi1QLKxafQ8wFwq0gTkNLRnI9tMyuJr5hgxuSJ0GZxsb5dqdITQTgSQdbsK015k7z1xpiTKyKQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\KIIT\\Desktop\\HLD_shopping cart\\New folder\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
+=======
+  "dgSpecHash": "Teo7nmYJhVpmRSqe4hb5ifmXn/buOaZ3kHFD8h/fWyaJdLMHycPUbe52ZzRYGfPkvlb9aEtJ4W9GZST8NqXQxQ==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\KIIT\\Desktop\\CAPG LEFTSHIFT\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
+>>>>>>> 6fffcd8611ea5ad48d8c40a9c68a85416553aca3
   "expectedPackageFiles": [
     "C:\\Users\\KIIT\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\KIIT\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
