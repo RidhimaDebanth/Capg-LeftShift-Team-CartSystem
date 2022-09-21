@@ -2068,11 +2068,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KIIT\\Desktop\\OnlineshoppingCart\\final\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
+      "projectUniqueName": "C:\\Users\\KIIT\\Desktop\\CAPG LEFTSHIFT\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
       "projectName": "OnlineShoppingCartSystem",
-      "projectPath": "C:\\Users\\KIIT\\Desktop\\OnlineshoppingCart\\final\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
+      "projectPath": "C:\\Users\\KIIT\\Desktop\\CAPG LEFTSHIFT\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
       "packagesPath": "C:\\Users\\KIIT\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KIIT\\Desktop\\OnlineshoppingCart\\final\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\obj\\",
+      "outputPath": "C:\\Users\\KIIT\\Desktop\\CAPG LEFTSHIFT\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\KIIT\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2130,7 +2130,8 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
@@ -2142,7 +2143,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   },
@@ -2151,7 +2152,7 @@
       "code": "Undefined",
       "level": "Warning",
       "warningLevel": 1,
-      "message": "Problem reading the cache file C:\\Users\\KIIT\\Desktop\\OnlineshoppingCart\\final\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+      "message": "Problem reading the cache file C:\\Users\\KIIT\\Desktop\\CAPG LEFTSHIFT\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
     }
   ]
 }
