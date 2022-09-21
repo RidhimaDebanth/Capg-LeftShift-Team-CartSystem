@@ -1,7 +1,6 @@
 {
   "format": 1,
   "restore": {
-<<<<<<< HEAD
     "C:\\Users\\KIIT\\Desktop\\HLD_shopping cart\\New folder\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj": {}
   },
   "projects": {
@@ -13,19 +12,6 @@
         "projectPath": "C:\\Users\\KIIT\\Desktop\\HLD_shopping cart\\New folder\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
         "packagesPath": "C:\\Users\\KIIT\\.nuget\\packages\\",
         "outputPath": "C:\\Users\\KIIT\\Desktop\\HLD_shopping cart\\New folder\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\obj\\",
-=======
-    "C:\\Users\\KIIT\\Desktop\\CAPG LEFTSHIFT\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj": {}
-  },
-  "projects": {
-    "C:\\Users\\KIIT\\Desktop\\CAPG LEFTSHIFT\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj": {
-      "version": "1.0.0",
-      "restore": {
-        "projectUniqueName": "C:\\Users\\KIIT\\Desktop\\CAPG LEFTSHIFT\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
-        "projectName": "OnlineShoppingCartSystem",
-        "projectPath": "C:\\Users\\KIIT\\Desktop\\CAPG LEFTSHIFT\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
-        "packagesPath": "C:\\Users\\KIIT\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\KIIT\\Desktop\\CAPG LEFTSHIFT\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\obj\\",
->>>>>>> 6fffcd8611ea5ad48d8c40a9c68a85416553aca3
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\KIIT\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -56,7 +42,7 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[6.0.8, )"
+              "version": "[6.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.Relational": {
               "target": "Package",
@@ -83,8 +69,7 @@
             "net47",
             "net471",
             "net472",
-            "net48",
-            "net481"
+            "net48"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -96,11 +81,7 @@
               "privateAssets": "all"
             }
           },
-<<<<<<< HEAD
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
-=======
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.400\\RuntimeIdentifierGraph.json"
->>>>>>> 6fffcd8611ea5ad48d8c40a9c68a85416553aca3
         }
       }
     }
