@@ -1,6 +1,6 @@
 ﻿namespace OnlineShoppingCartSystem.Services.Customer
 {
-    public class HomeRepository
+    public class CheckoutService
     {
     }
 }

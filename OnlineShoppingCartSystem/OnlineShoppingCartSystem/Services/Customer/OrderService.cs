@@ -1,6 +1,6 @@
 ﻿namespace OnlineShoppingCartSystem.Services.Customer
 {
-    public class Cart
+    public class OrderService
     {
     }
 }

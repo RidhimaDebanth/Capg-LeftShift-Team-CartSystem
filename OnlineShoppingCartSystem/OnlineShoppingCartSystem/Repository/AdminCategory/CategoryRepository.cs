@@ -36,7 +36,7 @@ namespace OnlineShoppingCartSystem.Repository.AdminCategory
 
         public  async Task<Category> Insert(Category entity)
         {
-            _dbContext.Categories.AddAsync(entity);
+           await _dbContext.Categories.AddAsync(entity);
             return entity;
         }
 

@@ -16,6 +16,11 @@ namespace OnlineShoppingCartSystem.Models
         [Display(Name = "Product Description")]
         public string ProductDescription { get; set; }
 
+        internal static Task FirstOrDefaultAsync(Func<object, bool> p)
+        {
+            throw new NotImplementedException();
+        }
+
         [Required(ErrorMessage = "price field is required")]
         [Display(Name = "Price")]
         public double Price { get; set; }
