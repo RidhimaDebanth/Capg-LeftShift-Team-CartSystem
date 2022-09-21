@@ -2068,11 +2068,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\KIIT\\Desktop\\HLD_shopping cart\\New folder\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
+      "projectUniqueName": "C:\\Users\\KIIT\\Desktop\\OnlineshoppingCart\\final\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
       "projectName": "OnlineShoppingCartSystem",
-      "projectPath": "C:\\Users\\KIIT\\Desktop\\HLD_shopping cart\\New folder\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
+      "projectPath": "C:\\Users\\KIIT\\Desktop\\OnlineshoppingCart\\final\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
       "packagesPath": "C:\\Users\\KIIT\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\KIIT\\Desktop\\HLD_shopping cart\\New folder\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\obj\\",
+      "outputPath": "C:\\Users\\KIIT\\Desktop\\OnlineshoppingCart\\final\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\KIIT\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -2142,7 +2142,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }
