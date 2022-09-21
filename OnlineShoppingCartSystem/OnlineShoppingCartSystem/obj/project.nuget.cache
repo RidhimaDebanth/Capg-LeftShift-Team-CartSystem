@@ -1,8 +1,12 @@
 {
   "version": 2,
+<<<<<<< HEAD
   "dgSpecHash": "sPwi1aI3AQh6XDHgjRt0DvclqwoUBPKvGASyuNKxYWAKWv+59oyQY6UO/8rnwKeA+xjwX598/8PXUpUaUbnvFw==",
+=======
+  "dgSpecHash": "IrqOKZp9UYJT2puc7a6vFoO0OM4bIVsvDpbp+ve2x3M2+j60kKg2wiCjsK0y+Cyz9P5P+oVN4TYEpF77MIRT0A==",
+>>>>>>> f2e55eebca8240beb30529135a3d83b06b03255c
   "success": true,
-  "projectFilePath": "C:\\Users\\KIIT\\Desktop\\CAPG LEFTSHIFT\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
+  "projectFilePath": "C:\\Users\\KIIT\\Desktop\\OnlineshoppingCart\\final\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\KIIT\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\KIIT\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
@@ -54,5 +58,12 @@
     "C:\\Users\\KIIT\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512",
     "C:\\Users\\KIIT\\.nuget\\packages\\system.windows.extensions\\4.7.0\\system.windows.extensions.4.7.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\KIIT\\Desktop\\OnlineshoppingCart\\final\\OnlineShoppingCartSystem\\OnlineShoppingCartSystem\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

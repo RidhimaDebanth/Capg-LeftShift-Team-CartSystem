@@ -39,7 +39,11 @@ namespace OnlineShoppingCartSystem.Controllers.Customer
         public async Task<IActionResult> InsertOrder([FromBody]Orders order)
         {
             var id = await _orderRepository.InsertOrder(order);
+<<<<<<< HEAD
             return CreatedAtAction(nameof(GetOrderById), new {id = id, controller = "Order"}, order);
+=======
+            return CreatedAtAction(nameof(GetOrderById), new {id = id, controller = "Order"}, id);
+>>>>>>> f2e55eebca8240beb30529135a3d83b06b03255c
            
         }
 
