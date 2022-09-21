@@ -32,5 +32,37 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
             }
             return Ok(product);
         }
+        [HttpGet("{name}")]
+        public async Task<IActionResult> GetProductByName(string name)
+        {
+            var product = await _productRepository.GetByName(name);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return Ok(product);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> InsertProduct([FromBody] Product product)
+        {
+            var id = await _productRepository.Insert(product);
+            return CreatedAtAction(nameof(GetProductById), new { id = id, controller = "Product" }, product);
+
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateProduct( [FromBody] Product product)
+        {
+            await _productRepository.Update(product);
+            return Ok(product);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteProduct([FromBody] Product product)
+        {
+            await _productRepository.Delete(product);
+            return Ok();
+        }
     }
 }
