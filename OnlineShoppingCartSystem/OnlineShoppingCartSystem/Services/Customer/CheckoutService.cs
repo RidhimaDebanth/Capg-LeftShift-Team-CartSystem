@@ -4,16 +4,16 @@ using OnlineShoppingCartSystem.Repository.Customer;
 
 namespace OnlineShoppingCartSystem.Services.Customer
 {
-    public class CheckoutService : ICheckout<Users>
+    public class CheckoutService  
     {
-        private readonly CheckoutRepository _repository;
-        public CheckoutService(CheckoutRepository repo)
+        ICheckout<Users> _repository;
+        public CheckoutService(ICheckout<Users> repo)
         {
             _repository = repo;
         }
-        public Task Save()
+        public async Task Save()
         {
-            return _repository.Save();
+            await _repository.Save();
         }
 
         public async Task<Users> UpdateDetails(Users entity)

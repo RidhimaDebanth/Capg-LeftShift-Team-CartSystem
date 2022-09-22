@@ -15,19 +15,14 @@ namespace OnlineShoppingCartSystem.Repository.AdminProduct
             if (product != null)
             {
                 context.Remove(entity);
+                context.SaveChanges();
             }
         }
 
         public async Task<IEnumerable<Product>> GetAll()
         {
            
-            return await context.Products.Include(p => p.Id)
-                                            .Include(p => p.Name)
-                                            .Include(p => p.ProductDescription)
-                                            .Include(p => p.Price)
-                                            .Include(p => p.ProductImage)
-                                            .Include(p => p.CategoryId)
-                                            .ToListAsync();
+            return await context.Products.ToListAsync();
         }
 
         public async Task<Product> GetById(int id)
@@ -46,6 +41,7 @@ namespace OnlineShoppingCartSystem.Repository.AdminProduct
         {
 
             await context.Products.AddAsync(entity);
+            context.SaveChanges();
             return entity;
         }
 
@@ -66,6 +62,8 @@ namespace OnlineShoppingCartSystem.Repository.AdminProduct
                 product.Price = entity.Price;
                 product.ProductImage = entity.ProductImage;
                 product.CategoryId = entity.CategoryId;
+                context.SaveChanges();
+
 
             }
             return product;

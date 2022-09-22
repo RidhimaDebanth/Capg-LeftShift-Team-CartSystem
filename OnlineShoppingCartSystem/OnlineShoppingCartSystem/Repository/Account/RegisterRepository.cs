@@ -6,7 +6,7 @@ namespace OnlineShoppingCartSystem.Repository.Account
     public class RegisterRepository : IAccount<Users , int>
     {
         private readonly OnlineShoppingCartDBContext _dbContext;
-        public RegisterRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbContext;
+        public RegisterRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbcontext;
         public async Task<Users> GetByUserId(int id)
         {
             return await _dbContext.Users.FindAsync(id);
@@ -15,6 +15,7 @@ namespace OnlineShoppingCartSystem.Repository.Account
         public async Task<Users> Insert(Users entity)
         {
             await _dbContext.Users.AddAsync(entity);
+            _dbContext.SaveChanges();
             return entity;
         }
 

@@ -18,7 +18,7 @@ namespace OnlineShoppingCartSystem.Controllers.Account
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetByUserId(int id)
+        public async Task<IActionResult> GetByUserId([FromQuery] int id)
         {
             var user = await _registerService.GetByUserId(id);
             if (user == null)

@@ -4,43 +4,47 @@ using OnlineShoppingCartSystem.Repository.AdminCategory;
 
 namespace OnlineShoppingCartSystem.Services.Admin
 {
-    public class CategoryService : IRepository<Category>
+    public class CategoryService 
     {
-        private readonly CategoryRepository _repository;
-        public CategoryService(CategoryRepository repo)
+        IRepository<Category> _repository;
+        public CategoryService(IRepository<Category> repo)
         {
             _repository = repo;
         }
 
-        public Task Delete(Category entity)
+        public async Task Delete(Category entity)
         {
             //throw new NotImplementedException();
-            return _repository.Delete(entity);
+             await _repository.Delete(entity);
+            //return  await _repository.Delete(entity);
+            
         }
 
-        public Task<IEnumerable<Category>> GetAll()
+        public async Task<IEnumerable<Category>> GetAll()
         {
             //throw new NotImplementedException();
            
-            return _repository.GetAll();
+            return await _repository.GetAll();
         }
 
-        public Task<Category> GetById(int id)
+        public async Task<Category> GetById(int id)
         {
             //throw new NotImplementedException();
-            return _repository.GetById(id);
+            return await _repository.GetById(id);
         }
 
-        public Task<Category> GetByName(string name)
+        public async Task<Category> GetByName(string name)
         {
             //throw new NotImplementedException();
-            return _repository.GetByName(name);
+            return await _repository.GetByName(name);
         }
 
-        public Task<Category> Insert(Category entity)
+        public async Task<Category> Insert(Category entity)
         {
             //throw new NotImplementedException();
-            return _repository.Insert(entity);
+            return await _repository.Insert(entity);
+
+
         }
 
         public async Task Save()

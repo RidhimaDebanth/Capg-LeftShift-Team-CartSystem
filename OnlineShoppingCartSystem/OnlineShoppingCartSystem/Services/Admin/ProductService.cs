@@ -4,47 +4,47 @@ using OnlineShoppingCartSystem.Repository.AdminProduct;
 
 namespace OnlineShoppingCartSystem.Services.Admin
 {
-    public class ProductService : IRepository<Product>
+    public class ProductService
     {
-        private readonly ProductRepository _repository;
-        public ProductService(ProductRepository repo)
+        IRepository<Product> _repository;
+        public ProductService(IRepository<Product> repo)
         {
             _repository = repo;
         }
 
-        public Task Delete(Product entity)
+        public async Task Delete(Product entity)
         {
-            return _repository.Delete(entity);
+            await _repository.Delete(entity);
         }
 
-        public Task<IEnumerable<Product>> GetAll()
+        public async Task<IEnumerable<Product>> GetAll()
         {
-            return _repository.GetAll();
+            return await _repository.GetAll();
         }
 
-        public Task<Product> GetById(int id)
+        public async Task<Product> GetById(int id)
         {
-           return _repository.GetById(id);
+           return await _repository.GetById(id);
         }
 
-        public Task<Product> GetByName(string name)
+        public  async Task<Product> GetByName(string name)
         {
-           return _repository.GetByName(name);
+           return  await _repository.GetByName(name);
         }
 
-        public Task<Product> Insert(Product entity)
+        public async  Task<Product> Insert(Product entity)
         {
-           return _repository.Insert(entity);
+           return await  _repository.Insert(entity);
         }
 
-        public Task Save()
+        public async Task Save()
         {
-            return _repository.Save();  
+             await _repository.Save();  
         }
 
-        public Task<Product> Update(Product entity)
+        public async Task<Product> Update(Product entity)
         {
-            return _repository.Update(entity);
+            return  await _repository.Update(entity);
         }
     }
 }

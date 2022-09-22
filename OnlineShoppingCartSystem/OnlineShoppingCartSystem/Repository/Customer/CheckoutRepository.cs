@@ -6,7 +6,7 @@ namespace OnlineShoppingCartSystem.Repository.Customer
     public class CheckoutRepository : ICheckout<Users>
     {
         private readonly OnlineShoppingCartDBContext _dbContext;
-        public CheckoutRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbContext;
+        public CheckoutRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbcontext;
 
         public async Task<Users> UpdateDetails(Users entity)
         {
@@ -16,6 +16,7 @@ namespace OnlineShoppingCartSystem.Repository.Customer
                 users.Name = entity.Name;
                 users.PhoneNo=entity.PhoneNo;
                 users.Address = entity.Address;
+                _dbContext.SaveChanges();
             }
             return users;
         }

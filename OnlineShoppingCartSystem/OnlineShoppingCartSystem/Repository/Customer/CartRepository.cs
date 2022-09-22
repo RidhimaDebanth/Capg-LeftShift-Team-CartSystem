@@ -6,12 +6,12 @@ namespace OnlineShoppingCartSystem.Repository.Customer
     public class CartRepository : ICart<Product, int>
     {
         private readonly OnlineShoppingCartDBContext _dbContext;
-        public CartRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbContext;
+        public CartRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbcontext;
        
 
         public async Task<IEnumerable<Product>> GetCart()
         {
-            return await _dbContext.Products.Include(p=> p.Id).ToListAsync();
+            return await _dbContext.Products.ToListAsync();
         }
 
         public Task Save()

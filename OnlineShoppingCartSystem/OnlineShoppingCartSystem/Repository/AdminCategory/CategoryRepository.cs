@@ -6,7 +6,7 @@ namespace OnlineShoppingCartSystem.Repository.AdminCategory
     public class CategoryRepository : IRepository<Category>
     {
         private readonly OnlineShoppingCartDBContext _dbContext;
-        public CategoryRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbContext;
+        public CategoryRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbcontext;
         
         public async Task Delete(Category entity)
         {
@@ -14,30 +14,37 @@ namespace OnlineShoppingCartSystem.Repository.AdminCategory
             if(category != null)
             {
                 _dbContext.Remove(category);
+                _dbContext.SaveChanges();
             }
         }
 
         public async Task<IEnumerable<Category>> GetAll()
         {
-            return await _dbContext.Categories.Include(c => c.CategoryName).ToListAsync();
+            return await _dbContext.Categories.ToListAsync();
         }
 
         public async Task<Category> GetById(int id)
         {
             return await _dbContext.Categories.FindAsync(id);
+            
+            
+
+
         }
 
         
 
         public async Task<Category> GetByName(string name)
         {
-            return await _dbContext.Categories.FindAsync( name);
+            return await _dbContext.Categories.FindAsync(name);
+            
         }
 
         public  async Task<Category> Insert(Category entity)
         {
            await _dbContext.Categories.AddAsync(entity);
-            return entity;
+            _dbContext.SaveChanges();
+           return entity;
         }
 
         public async Task Save()
@@ -47,10 +54,11 @@ namespace OnlineShoppingCartSystem.Repository.AdminCategory
         
         public async Task<Category> Update(Category entity)
         {
-            var category=await _dbContext.Categories.FirstOrDefaultAsync(c => c.CategoryName==entity.CategoryName);
+            var category=await _dbContext.Categories.FirstOrDefaultAsync(c => c.Id==entity.Id);
             if(category!=null)
             {
                 category.CategoryName=entity.CategoryName;
+                _dbContext.SaveChanges();
                 
             }
             return category;

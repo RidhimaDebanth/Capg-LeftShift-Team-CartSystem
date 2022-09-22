@@ -4,22 +4,22 @@ using OnlineShoppingCartSystem.Repository.Customer;
 
 namespace OnlineShoppingCartSystem.Services.Customer
 {
-    public class CartService : ICart<Product, int>
+    public class CartService  
     {
-        private readonly CartRepository _repository;
-        public CartService(CartRepository repo)
+        ICart<Product, int> _repository;
+        public CartService(ICart<Product, int> repo)
         {
             _repository = repo;
         }
 
-        public Task<IEnumerable<Product>> GetCart()
+        public async Task<IEnumerable<Product>> GetCart()
         {
-            return _repository.GetCart();
+            return  await _repository.GetCart();
         }
 
-        public Task Save()
+        public async  Task Save()
         {
-            return _repository.Save();
+            await _repository.Save();
         }
     }
 }

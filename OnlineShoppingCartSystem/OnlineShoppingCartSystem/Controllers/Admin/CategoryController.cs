@@ -17,7 +17,7 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
         public readonly CategoryService _categoryService;
         public CategoryController(CategoryService categoryService)
         {
-            _categoryService=categoryService;
+            _categoryService = categoryService;
         }
 
         [HttpPost]
@@ -39,7 +39,7 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
         }
 
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetCategoryById(int id)
+        public async Task<IActionResult> GetCategoryById([FromQuery] int id)
         {
             var category = await _categoryService.GetById(id);
             if (category == null)
