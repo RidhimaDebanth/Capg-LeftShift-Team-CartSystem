@@ -4,11 +4,11 @@ using OnlineShoppingCartSystem.Repository.Account;
 
 namespace OnlineShoppingCartSystem.Services.Account
 {
-    public class UserService : IAccount<Users, int>
+    public class RegisterService : IAccount<Users, int>
     {
         private readonly RegisterRepository _repository;
 
-        public UserService(RegisterRepository repo)
+        public RegisterService(RegisterRepository repo)
         {
             _repository = repo;
         }

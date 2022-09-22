@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineShoppingCartSystem.Models;
 using OnlineShoppingCartSystem.Repository;
+using OnlineShoppingCartSystem.Services.Account;
 
 namespace OnlineShoppingCartSystem.Controllers.Account
 {
@@ -10,16 +11,16 @@ namespace OnlineShoppingCartSystem.Controllers.Account
     public class RegisterController : ControllerBase
     {
 
-        private readonly Repository.IAccount<Users, int> _registerRepository;
-        public RegisterController(IAccount<Users, int> registerRepository)
+        public readonly RegisterService _registerService;
+        public RegisterController(RegisterService registerService)
         {
-            _registerRepository = registerRepository;
+            _registerService = registerService;
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetByUserId(int id)
         {
-            var user = await _registerRepository.GetByUserId(id);
+            var user = await _registerService.GetByUserId(id);
             if (user == null)
             {
                 return NotFound();
@@ -29,10 +30,11 @@ namespace OnlineShoppingCartSystem.Controllers.Account
 
 
         [HttpPost]
-        public async Task<IActionResult> Insert([FromBody] Users entity)
+        public async Task<IActionResult> Insert([Bind()] Users entity)
         {
-            var id = await _registerRepository.Insert(entity);
-            return CreatedAtAction(nameof(GetByUserId), new { id = id, controller = "Register" }, id);
+            var r = await _registerService.Insert(entity);
+            await _registerService.Save();
+            return Ok(r);
         }
     }
 }

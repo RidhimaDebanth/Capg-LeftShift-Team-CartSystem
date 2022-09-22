@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineShoppingCartSystem.Models;
 using OnlineShoppingCartSystem.Repository;
+using OnlineShoppingCartSystem.Services.Customer;
 
 namespace OnlineShoppingCartSystem.Controllers.Customer
 {
@@ -9,17 +10,16 @@ namespace OnlineShoppingCartSystem.Controllers.Customer
     [ApiController]
     public class OrderController : ControllerBase
     {
-        private readonly Repository.IOrder<Orders, int> _orderRepository;
-
-        public OrderController(IOrder<Orders, int> orderRepository)
+        public readonly OrderService _orderService;
+        public OrderController(OrderService orderService)
         {
-            _orderRepository = orderRepository;
+            _orderService = orderService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllOrders()
         {
-            var orders = await _orderRepository.GetAllOrders();
+            var orders = await _orderService.GetAllOrders();
             return Ok(orders);
                                           
         }
@@ -27,7 +27,7 @@ namespace OnlineShoppingCartSystem.Controllers.Customer
         [HttpGet("{id}")]
         public async Task<IActionResult> GetOrderById(int id)
         {
-            var order = await _orderRepository.GetOrderById(id);
+            var order = await _orderService.GetOrderById(id);
             if(order == null)
             {
                 return NotFound();  
@@ -38,10 +38,11 @@ namespace OnlineShoppingCartSystem.Controllers.Customer
         [HttpPost]
         public async Task<IActionResult> InsertOrder([FromBody]Orders order)
         {
-            var id = await _orderRepository.InsertOrder(order);
+            var o = await _orderService.InsertOrder(order);
+            await _orderService.Save();
+            return Ok(o);   
 
-            return CreatedAtAction(nameof(GetOrderById), new {id = id, controller = "Order"}, order);
-            return CreatedAtAction(nameof(GetOrderById), new {id = id, controller = "Order"}, id);
+            
 
            
         }

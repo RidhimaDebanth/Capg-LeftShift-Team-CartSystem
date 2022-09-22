@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineShoppingCartSystem.Models;
 using OnlineShoppingCartSystem.Repository;
+using OnlineShoppingCartSystem.Services.Admin;
 
 namespace OnlineShoppingCartSystem.Controllers.Admin
 {
@@ -9,23 +10,23 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IRepository<Product> _productRepository;
-        public ProductController(IRepository<Product> productRepository)
+        public readonly ProductService _productService;
+        public ProductController(ProductService productService)
         {
-            _productRepository = productRepository;
+            _productService = productService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetAllProducts()
         {
-            var categories = await _productRepository.GetAll();
+            var categories = await _productService.GetAll();
             return Ok(categories);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetProductById(int id)
         {
-            var product = await _productRepository.GetById(id);
+            var product = await _productService.GetById(id);
             if(product == null)
             {
                 return NotFound();
@@ -35,7 +36,7 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
         [HttpGet("{name}")]
         public async Task<IActionResult> GetProductByName(string name)
         {
-            var product = await _productRepository.GetByName(name);
+            var product = await _productService.GetByName(name);
             if (product == null)
             {
                 return NotFound();
@@ -44,24 +45,26 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
         }
 
         [HttpPost]
-        public async Task<IActionResult> InsertProduct([FromBody] Product product)
+        public async Task<IActionResult> InsertProduct([FromBody] Product entity)
         {
-            var id = await _productRepository.Insert(product);
-            return CreatedAtAction(nameof(GetProductById), new { id = id, controller = "Product" }, product);
+            var p = await _productService.Insert(entity);
+            await _productService.Save();
+            return Ok(p);
+            
 
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateProduct( [FromBody] Product product)
         {
-            await _productRepository.Update(product);
+            await _productService.Update(product);
             return Ok(product);
         }
 
         [HttpDelete]
         public async Task<IActionResult> DeleteProduct([FromBody] Product product)
         {
-            await _productRepository.Delete(product);
+            await _productService.Delete(product);
             return Ok();
         }
     }

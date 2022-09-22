@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineShoppingCartSystem.Models;
 using OnlineShoppingCartSystem.Repository;
+using OnlineShoppingCartSystem.Services;
+using OnlineShoppingCartSystem.Services.Admin;
 
 namespace OnlineShoppingCartSystem.Controllers.Admin
 {
@@ -9,23 +11,37 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
     [ApiController]
     public class CategoryController : ControllerBase
     {
-        private readonly IRepository<Category> _categoryRepository;
-        public CategoryController(IRepository<Category> categoryRepository)
+
+
+        //private readonly IRepository<Category> _categoryRepository;
+        public readonly CategoryService _categoryService;
+        public CategoryController(CategoryService categoryService)
         {
-            _categoryRepository = categoryRepository;
+            _categoryService=categoryService;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> InsertCategory([Bind()] Category entity)
+        {
+            await _categoryService.Insert(entity);
+            await _categoryService.Save();
+            return (Ok());
+
+        }
+
+
 
         [HttpGet]
         public async Task<IActionResult> GetAllCategories()
         {
-            var categories = await _categoryRepository.GetAll();
+            var categories = await _categoryService.GetAll();
             return Ok(categories);
         }
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCategoryById(int id)
         {
-            var category = await _categoryRepository.GetById(id);
+            var category = await _categoryService.GetById(id);
             if (category == null)
             {
                 return NotFound();
@@ -36,7 +52,7 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
         [HttpGet("{name}")]
         public async Task<IActionResult> GetCategoryByName(string name)
         {
-            var category = await _categoryRepository.GetByName(name);
+            var category = await _categoryService.GetByName(name);
             if (category == null)
             {
                 return NotFound();
@@ -44,29 +60,29 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
             return Ok(category);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> InsertCategory([FromBody] Category category)
-        {
-            var id = await _categoryRepository.Insert(category);
-            return CreatedAtAction(nameof(GetCategoryById), new { id = id, controller = "Category" }, category);
+        //[HttpPost]
+        //public async Task<IActionResult> InsertCategory([FromBody] Category category)
+        //{
+        //    var id = await _categoryRepository.Insert(category);
+        //    return CreatedAtAction(nameof(GetCategoryById), new { id = id, controller = "Category" }, category);
 
-        }
+        //}
 
         [HttpPut]
         public async Task<IActionResult> UpdateCategory([FromBody] Category category)
         {
-            await _categoryRepository.Update(category);
+            await _categoryService.Update(category);
             return Ok(category);
         }
 
         [HttpDelete]
         public async Task<IActionResult> DeleteCategory([FromBody] Category category)
         {
-            await _categoryRepository.Delete(category);
+            await _categoryService.Delete(category);
             return Ok();
         }
 
-   
-     }
+
+    }
 }
  

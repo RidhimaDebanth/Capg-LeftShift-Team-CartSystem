@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineShoppingCartSystem.Models;
 using OnlineShoppingCartSystem.Repository;
+using OnlineShoppingCartSystem.Services.Customer;
 
 namespace OnlineShoppingCartSystem.Controllers.Customer
 {
@@ -9,17 +10,16 @@ namespace OnlineShoppingCartSystem.Controllers.Customer
     [ApiController]
     public class CartController : ControllerBase
     {
-        private readonly Repository.ICart<Product ,int> _CartRepository;
-
-        public CartController(ICart<Product ,int> cartRepository)
+        public readonly CartService _cartService;
+        public CartController(CartService cartService)
         {
-            _CartRepository = cartRepository;
+            _cartService = cartService;
         }
 
         [HttpGet]
         public async Task<IActionResult> GetCart()
         {
-            var cart = await _CartRepository.GetCart();
+            var cart = await _cartService.GetCart();
             if (cart == null)
             {
                 return NotFound();

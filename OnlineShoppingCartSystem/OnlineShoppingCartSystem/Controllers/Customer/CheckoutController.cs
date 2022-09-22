@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using OnlineShoppingCartSystem.Models;
 using OnlineShoppingCartSystem.Repository;
+using OnlineShoppingCartSystem.Services.Customer;
 
 namespace OnlineShoppingCartSystem.Controllers.Customer
 {
@@ -9,18 +10,17 @@ namespace OnlineShoppingCartSystem.Controllers.Customer
     [ApiController]
     public class CheckoutController : ControllerBase
     {
-        private readonly Repository.ICheckout<Users> _CheckoutRepository;
-        public CheckoutController(ICheckout<Users> CheckoutRepository)
+        public readonly CheckoutService _checkoutService;
+        public CheckoutController(CheckoutService categoryService)
         {
-            _CheckoutRepository = CheckoutRepository;
-
+            _checkoutService = categoryService;
         }
 
         [HttpPut]
         public async Task<IActionResult> UpdateDetails([FromBody] Users users )
 
         {
-          await _CheckoutRepository.UpdateDetails(users);
+          await _checkoutService.UpdateDetails(users);
           return Ok(users);
         }
 
