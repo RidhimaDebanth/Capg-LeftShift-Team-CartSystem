@@ -6,8 +6,8 @@ namespace OnlineShoppingCartSystem.Services.Customer
 {
     public class OrderService 
     {
-        IOrder<Orders, int> _repository;
-        public OrderService(IOrder<Orders, int> repo)
+        IOrder<Orders> _repository;
+        public OrderService(IOrder<Orders> repo)
         {
             _repository = repo;
 
@@ -18,17 +18,17 @@ namespace OnlineShoppingCartSystem.Services.Customer
             return  await _repository.GetAllOrders();
         }
 
-        public async Task<Orders> GetOrderById(int id)
+        public async Task<IEnumerable<Orders>> GetOrdersByUserId(int userid)
         {
             //throw new NotImplementedException();
-            return await _repository.GetOrderById(id);
+            return await _repository.GetOrdersByUserId(userid);
         }
 
-        public async Task<Orders> InsertOrder(Orders entity)
-        {
-            //throw new NotImplementedException();
-            return await _repository.InsertOrder(entity);
-        }
+        //public async Task<Orders> InsertOrder(Orders entity)
+        //{
+        //    //throw new NotImplementedException();
+        //    return await _repository.InsertOrder(entity);
+        //}
 
         public async Task Save()
         {

@@ -1,10 +1,10 @@
 ﻿namespace OnlineShoppingCartSystem.Repository
 {
-    public interface IOrder <TEntity,TKey> where TEntity : class
+    public interface IOrder <TEntity> where TEntity : class
     {
-        Task<TEntity> InsertOrder(TEntity entity);
+        //Task<TEntity> InsertOrder(TEntity entity);
         Task<IEnumerable<TEntity>> GetAllOrders();
-        Task<TEntity> GetOrderById(int id);
+        Task<IEnumerable<TEntity>> GetOrdersByUserId(int userid);
         Task Save();
     }
 }

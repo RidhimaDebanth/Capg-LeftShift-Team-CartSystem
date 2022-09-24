@@ -19,15 +19,15 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
         [HttpGet]
         public async Task<IActionResult> GetAllProducts()
         {
-            var categories = await _productService.GetAll();
-            return Ok(categories);
+            var products = await _productService.GetAll();
+            return Ok(products);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetProductById(int id)
         {
             var product = await _productService.GetById(id);
-            if(product == null)
+            if (product == null)
             {
                 return NotFound();
             }
@@ -36,26 +36,29 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
         [HttpGet("{name}")]
         public async Task<IActionResult> GetProductByName(string name)
         {
-            var product = await _productService.GetByName(name);
-            if (product == null)
+            var products = await _productService.GetByName(name);
+            if (products == null)
             {
                 return NotFound();
             }
-            return Ok(product);
+            return Ok(products);
+
         }
 
+
+
         [HttpPost]
-        public async Task<IActionResult> InsertProduct([FromBody] Product entity)
+        public async Task<IActionResult> InsertProduct([Bind()] Product entity)
         {
-            var p = await _productService.Insert(entity);
+            await _productService.Insert(entity);
             await _productService.Save();
-            return Ok(p);
-            
+            return (Ok());
+
 
         }
 
         [HttpPut]
-        public async Task<IActionResult> UpdateProduct( [FromBody] Product product)
+        public async Task<IActionResult> UpdateProduct([FromBody] Product product)
         {
             await _productService.Update(product);
             return Ok(product);
@@ -66,6 +69,17 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
         {
             await _productService.Delete(product);
             return Ok();
+        }
+
+        [HttpGet("{categoryId:int}/categoryitems")]
+        public async Task<IActionResult> GetByCategoryId(int categoryId)
+        {
+            var product = await _productService.GetByCategoryId(categoryId);
+            if (product == null)
+            {
+                return NotFound();
+            }
+            return Ok(product);
         }
     }
 }

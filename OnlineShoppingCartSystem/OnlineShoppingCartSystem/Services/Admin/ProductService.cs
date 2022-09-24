@@ -6,8 +6,8 @@ namespace OnlineShoppingCartSystem.Services.Admin
 {
     public class ProductService
     {
-        IRepository<Product> _repository;
-        public ProductService(IRepository<Product> repo)
+        IProduct<Product> _repository;
+        public ProductService(IProduct<Product> repo)
         {
             _repository = repo;
         }
@@ -27,9 +27,14 @@ namespace OnlineShoppingCartSystem.Services.Admin
            return await _repository.GetById(id);
         }
 
-        public  async Task<Product> GetByName(string name)
+        public  async Task<IEnumerable<Product> >GetByName(string name)
         {
            return  await _repository.GetByName(name);
+        }
+
+        public async Task<IEnumerable<Product>> GetByCategoryId(int categoryId)
+        {
+            return await _repository.GetByCategoryId(categoryId);
         }
 
         public async  Task<Product> Insert(Product entity)

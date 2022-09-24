@@ -38,7 +38,7 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
             return Ok(categories);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetCategoryById([FromQuery] int id)
         {
             var category = await _categoryService.GetById(id);

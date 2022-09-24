@@ -24,10 +24,10 @@ namespace OnlineShoppingCartSystem.Controllers.Customer
                                           
         }
 
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetOrderById(int id)
+        [HttpGet("{userid:int}")]
+        public async Task<IActionResult> GetOrdersById(int userid)
         {
-            var order = await _orderService.GetOrderById(id);
+            var order = await _orderService.GetOrdersByUserId(userid);
             if(order == null)
             {
                 return NotFound();  
@@ -35,17 +35,17 @@ namespace OnlineShoppingCartSystem.Controllers.Customer
             return Ok(order);
         }
 
-        [HttpPost]
-        public async Task<IActionResult> InsertOrder([FromBody]Orders order)
-        {
-            var o = await _orderService.InsertOrder(order);
-            await _orderService.Save();
-            return Ok(o);   
+        //[HttpPost]
+        //public async Task<IActionResult> InsertOrder([Bind()]Orders entity)
+        //{
+        //    await _orderService.InsertOrder(entity);
+        //    await _orderService.Save();
+        //    return Ok();   
 
             
 
            
-        }
+        //}
 
 
     }

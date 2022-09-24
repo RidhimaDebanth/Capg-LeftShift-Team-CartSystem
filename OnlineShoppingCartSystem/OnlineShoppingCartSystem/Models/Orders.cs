@@ -16,7 +16,7 @@ namespace OnlineShoppingCartSystem.Models
         public int ProductId { get; set; }
 
         [Display(Name ="Product Name")]
-        public int ProductName { get; set; }
+        public string ProductName { get; set; }
 
         [ValidateNever]
         [Display(Name ="Image")]

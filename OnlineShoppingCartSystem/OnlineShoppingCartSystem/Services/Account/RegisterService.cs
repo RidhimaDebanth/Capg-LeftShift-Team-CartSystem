@@ -6,9 +6,9 @@ namespace OnlineShoppingCartSystem.Services.Account
 {
     public class RegisterService 
     {
-        IAccount<Users, int> _repository;
+        IAccount<Users> _repository;
 
-        public RegisterService(IAccount<Users, int> repo)
+        public RegisterService(IAccount<Users> repo)
         {
             _repository = repo;
         }
@@ -23,7 +23,14 @@ namespace OnlineShoppingCartSystem.Services.Account
             //throw new NotImplementedException();
             return await _repository.Insert(entity);
         }
-
+        public async Task<Users> GetByUsername(string username)
+        {
+            return await _repository.GetByUsername(username);
+        }
+        public async Task DeleteUserAccount (Users entity)
+        {
+            await _repository.DeleteUserAccount(entity);
+        }
         public  Task Save()
         {
             //throw new NotImplementedException();

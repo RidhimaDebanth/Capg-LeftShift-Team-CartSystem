@@ -29,17 +29,17 @@ builder.Services.AddSwaggerGen();
 
 //Adding Services to the contatiner
 
-builder.Services.AddScoped<IAccount<Users, int>, RegisterRepository>();
+builder.Services.AddScoped<IAccount<Users>, RegisterRepository>();
 builder.Services.AddScoped<RegisterService, RegisterService>();
-builder.Services.AddScoped<IRepository<Category>, CategoryRepository>();
+builder.Services.AddScoped<ICategory<Category>, CategoryRepository>();
 builder.Services.AddScoped<CategoryService, CategoryService>();
-builder.Services.AddScoped<IRepository<Product>, ProductRepository>();
+builder.Services.AddScoped<IProduct<Product>, ProductRepository>();
 builder.Services.AddScoped<ProductService, ProductService>();
 builder.Services.AddScoped<ICart<Product, int>, CartRepository>();
 builder.Services.AddScoped<CartService, CartService >();
 builder.Services.AddScoped<ICheckout<Users>, CheckoutRepository>();
 builder.Services.AddScoped<CheckoutService, CheckoutService>();
-builder.Services.AddScoped<IOrder<Orders, int>, OrderRepository>();
+builder.Services.AddScoped<IOrder<Orders>, OrderRepository>();
 builder.Services.AddScoped<OrderService, OrderService>();
 
 var app = builder.Build();

@@ -1,60 +1,109 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineShoppingCartSystem.Models;
+using System.Collections.Generic;
 
 namespace OnlineShoppingCartSystem.Repository.AdminProduct
 {
-    public class ProductRepository : IRepository<Product>
+    public class ProductRepository : IProduct<Product>
     {
         private readonly OnlineShoppingCartDBContext context;
         public ProductRepository(OnlineShoppingCartDBContext context) => this.context = context;
 
-        public async Task Delete(Product entity)
+        public async Task<Product> Insert(Product entity)
         {
-            
-            var product = await context.Products.FirstOrDefaultAsync(p => p.Id == entity.Id);
-            if (product != null)
+
+            var p = new Product()
             {
-                context.Remove(entity);
-                context.SaveChanges();
-            }
+                Id = entity.Id,
+                Name = entity.Name,
+                ProductDescription = entity.ProductDescription,
+                Price = entity.Price,
+                ProductImage = entity.ProductImage,
+                CategoryId = entity.CategoryId,
+
+            };
+            context.Products.Add(p);
+            await context.SaveChangesAsync();
+            return p;
+            
+            //await context.Products.AddAsync(entity);
+            //context.SaveChanges();
+            //return entity;
         }
+
+        #region Get
+        //Retrieving data
 
         public async Task<IEnumerable<Product>> GetAll()
         {
-           
-            return await context.Products.ToListAsync();
+            var products = await context.Products.Select(p => new Product()
+            {
+                Id = p.Id,
+                Name = p.Name,
+                ProductDescription = p.ProductDescription,
+                Price = p.Price,
+                ProductImage = p.ProductImage,
+                CategoryId = p.CategoryId,
+                Category = p.Category
+            }).ToListAsync();
+            return products;
+            //return await context.Products.ToListAsync();
         }
 
         public async Task<Product> GetById(int id)
         {
-            
-            return await context.Products.FindAsync(id);
+
+            var product = await context.Products.Where(p => p.Id == id).Select(p => new Product()
+            {
+                Id = p.Id,
+                Name = p.Name,
+                ProductDescription = p.ProductDescription,
+                Price = p.Price,
+                ProductImage = p.ProductImage,
+                CategoryId = p.CategoryId
+            }).FirstOrDefaultAsync();
+            return product;
         }
 
-        public async Task<Product> GetByName(string name)
+        public async Task<IEnumerable<Product> >GetByName(string name)
         {
-            
-            return await context.Products.FindAsync(name);
+
+            var product = await context.Products.Where(p => p.Name == name).Select(p => new Product()
+            {
+                Id = p.Id,
+                Name = p.Name,
+                ProductDescription = p.ProductDescription,
+                Price = p.Price,
+                ProductImage = p.ProductImage,
+                CategoryId = p.CategoryId,
+                Category=p.Category
+            }).ToListAsync();
+            return product;
         }
 
-        public async Task<Product> Insert(Product entity)
+        public async Task<IEnumerable<Product>> GetByCategoryId(int categoryId)
         {
-
-            await context.Products.AddAsync(entity);
-            context.SaveChanges();
-            return entity;
+            var product = await context.Products.Where(p => p.CategoryId == categoryId).Select(p => new Product()
+            {
+                Id = p.Id,
+                Name = p.Name,
+                ProductDescription = p.ProductDescription,
+                Price = p.Price,
+                ProductImage = p.ProductImage,
+                CategoryId = p.CategoryId,
+                Category =p.Category
+            }).ToListAsync();
+            return product;
         }
 
-        public async Task Save()
-        {
-            
-            await context.SaveChangesAsync();
-        }
+
+#endregion
+
 
         public async Task<Product> Update(Product entity)
         {
             //throw new NotImplementedException();
-            var product = await context.Products.FirstOrDefaultAsync(p => p.Name == entity.Name);
+            var product = await context.Products.FirstOrDefaultAsync(p => p.Id == entity.Id);
             if (product != null)
             {
                 product.Name = entity.Name;
@@ -68,6 +117,24 @@ namespace OnlineShoppingCartSystem.Repository.AdminProduct
             }
             return product;
         }
+
+        public async Task Delete(Product entity)
+        {
+
+            var product = await context.Products.FirstOrDefaultAsync(p => p.Id == entity.Id);
+            if (product != null)
+            {
+                context.Remove(product);
+                context.SaveChanges();
+            }
+        }
+
+        public async Task Save()
+        {
+
+            await context.SaveChangesAsync();
+        }
+
     }
 }
 

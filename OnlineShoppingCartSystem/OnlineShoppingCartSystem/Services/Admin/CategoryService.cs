@@ -6,8 +6,8 @@ namespace OnlineShoppingCartSystem.Services.Admin
 {
     public class CategoryService 
     {
-        IRepository<Category> _repository;
-        public CategoryService(IRepository<Category> repo)
+        ICategory<Category> _repository;
+        public CategoryService(ICategory<Category> repo)
         {
             _repository = repo;
         }
