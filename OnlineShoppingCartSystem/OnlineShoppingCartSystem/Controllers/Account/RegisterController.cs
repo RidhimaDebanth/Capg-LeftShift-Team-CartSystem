@@ -17,6 +17,24 @@ namespace OnlineShoppingCartSystem.Controllers.Account
             _registerService = registerService;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Insert([Bind()] Users entity)
+        {
+            var r = await _registerService.Insert(entity);
+            await _registerService.Save();
+            return Ok(r);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllUsers()
+        {
+            var users = await _registerService.GetAllUsers();
+            return Ok(users);
+        }
+
+
+
+
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetByUserId( int id)
         {
@@ -29,13 +47,7 @@ namespace OnlineShoppingCartSystem.Controllers.Account
         }
 
 
-        [HttpPost]
-        public async Task<IActionResult> Insert([Bind()] Users entity)
-        {
-            var r = await _registerService.Insert(entity);
-            await _registerService.Save();
-            return Ok(r);
-        }
+        
 
         [HttpGet("{username}")]
         public async Task<IActionResult>GetByUsername(string username)

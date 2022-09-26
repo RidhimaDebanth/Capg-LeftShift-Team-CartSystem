@@ -12,17 +12,24 @@ namespace OnlineShoppingCartSystem.Services.Account
         {
             _repository = repo;
         }
-        public async Task<Users> GetByUserId(int id)
-        {
-            //throw new NotImplementedException();
-            return  await _repository.GetByUserId(id);
-        }
 
         public async Task<Users> Insert(Users entity)
         {
             //throw new NotImplementedException();
             return await _repository.Insert(entity);
         }
+        public async Task<IEnumerable<Users>> GetAllUsers()
+        {
+            return await _repository.GetAllUsers();
+        }
+
+        public async Task<Users> GetByUserId(int id)
+        {
+            //throw new NotImplementedException();
+            return  await _repository.GetByUserId(id);
+        }
+
+       
         public async Task<Users> GetByUsername(string username)
         {
             return await _repository.GetByUsername(username);

@@ -35,6 +35,25 @@ namespace OnlineShoppingCartSystem.Repository.Account
             //return entity;
         }
 
+        public async Task<IEnumerable<Users>> GetAllUsers()
+        {
+            //throw new NotImplementedException();
+            var users=await _dbContext.Users.Select(u=> new Users()
+            {
+                Id = u.Id,
+                Role = u.Role,
+                Name = u.Name,
+                Username = u.Username,
+                Address = u.Address,
+                Email = u.Email,
+                PhoneNo = u.PhoneNo,
+                DateOfBirth = u.DateOfBirth,
+                Password = u.Password,
+                ConfirmPass = u.ConfirmPass,
+            }).ToListAsync();
+            return users;
+        }
+
         public async Task<Users> GetByUserId(int id)
         {
             var user = await _dbContext.Users.Where(u => u.Id == id).Select(u => new Users()
