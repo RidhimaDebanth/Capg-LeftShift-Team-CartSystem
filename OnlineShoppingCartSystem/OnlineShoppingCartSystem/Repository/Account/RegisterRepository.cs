@@ -10,7 +10,7 @@ namespace OnlineShoppingCartSystem.Repository.Account
         public RegisterRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbcontext;
 
 
-        #region Methods
+        
         public async Task<Users> Insert(Users entity)
         {
             var role = "Customer";
@@ -35,6 +35,8 @@ namespace OnlineShoppingCartSystem.Repository.Account
             //return entity;
         }
 
+        #region Get
+        //Retrieving data
         public async Task<IEnumerable<Users>> GetAllUsers()
         {
             //throw new NotImplementedException();
@@ -91,6 +93,8 @@ namespace OnlineShoppingCartSystem.Repository.Account
             }).FirstOrDefaultAsync();
             return user;
         }
+       
+        #endregion
 
         public async Task DeleteUserAccount(Users entity)
         {
@@ -103,8 +107,6 @@ namespace OnlineShoppingCartSystem.Repository.Account
             }
         }
 
-
-
         public async Task Save()
         {
             await _dbContext.SaveChangesAsync();
@@ -112,5 +114,5 @@ namespace OnlineShoppingCartSystem.Repository.Account
 
         
     }
-    #endregion
+    
 }

@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShoppingCartSystem.Models;
 using OnlineShoppingCartSystem.Repository;
@@ -17,6 +18,7 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllProducts()
         {
             var products = await _productService.GetAll();

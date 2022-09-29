@@ -1,6 +1,6 @@
 ﻿using OnlineShoppingCartSystem.Models;
 using OnlineShoppingCartSystem.Repository;
-using OnlineShoppingCartSystem.Repository.AdminCategory;
+using OnlineShoppingCartSystem.Repository.Admin;
 
 namespace OnlineShoppingCartSystem.Services.Admin
 {

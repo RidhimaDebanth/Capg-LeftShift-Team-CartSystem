@@ -10,7 +10,6 @@ C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCart
 C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\obj\Debug\net6.0\OnlineShoppingCartSystem.csproj.AssemblyReference.cache
 C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\obj\Debug\net6.0\OnlineShoppingCartSystem.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\obj\Debug\net6.0\OnlineShoppingCartSystem.AssemblyInfoInputs.cache
 C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\obj\Debug\net6.0\OnlineShoppingCartSystem.AssemblyInfo.cs
@@ -181,3 +180,14 @@ C:\Users\KIIT\Desktop\HLD_shopping cart\New folder\OnlineShoppingCartSystem\Onli
 C:\Users\KIIT\Desktop\HLD_shopping cart\New folder\OnlineShoppingCartSystem\OnlineShoppingCartSystem\obj\Debug\net6.0\OnlineShoppingCartSystem.pdb
 C:\Users\KIIT\Desktop\HLD_shopping cart\New folder\OnlineShoppingCartSystem\OnlineShoppingCartSystem\obj\Debug\net6.0\OnlineShoppingCartSystem.genruntimeconfig.cache
 C:\Users\KIIT\Desktop\HLD_shopping cart\New folder\OnlineShoppingCartSystem\OnlineShoppingCartSystem\obj\Debug\net6.0\ref\OnlineShoppingCartSystem.dll
+C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\FluentAssertions.dll
+C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\Microsoft.SqlServer.Management.SqlParser.dll
+C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\System.CodeDom.dll
+C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\libman.json
+C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll

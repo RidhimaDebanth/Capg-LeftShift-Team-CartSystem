@@ -7,6 +7,8 @@ namespace OnlineShoppingCartSystem.Repository.Customer
     {
         private readonly OnlineShoppingCartDBContext _dbContext;
         public OrderRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbcontext;
+       
+        
         public async Task<IEnumerable<Orders>> GetAllOrders()
         {
             //return await _dbContext.Orders.ToListAsync();

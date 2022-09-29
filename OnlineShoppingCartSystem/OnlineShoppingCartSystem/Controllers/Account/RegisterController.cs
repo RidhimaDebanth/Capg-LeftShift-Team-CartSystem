@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using OnlineShoppingCartSystem.Models;
 using OnlineShoppingCartSystem.Repository;
@@ -26,6 +27,7 @@ namespace OnlineShoppingCartSystem.Controllers.Account
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAllUsers()
         {
             var users = await _registerService.GetAllUsers();
