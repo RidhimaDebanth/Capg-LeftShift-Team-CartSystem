@@ -111,6 +111,15 @@ builder.Services.AddScoped<OrderService, OrderService>();
 //builder.Services.AddScoped<LoginRepository ,LoginRepository>();
 //builder.Services.AddScoped<LoginService, LoginService>();
 
+
+builder.Services.AddCors((setup) =>
+{
+    setup.AddPolicy("default", (options) =>
+    {
+        options.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -120,6 +129,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseCors("default"); 
 app.UseHttpsRedirection();
 
 app.UseAuthentication();

@@ -191,3 +191,4 @@ C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCart
 C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\Microsoft.Extensions.Identity.Stores.dll
 C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\libman.json
 C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\bin\Debug\net6.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\KIIT\Desktop\CAPG LEFTSHIFT\OnlineShoppingCartSystem\OnlineShoppingCartSystem\obj\Debug\net6.0\OnlineShoppingCartSystem.csproj.AssemblyReference.cache
