@@ -12,9 +12,9 @@ namespace OnlineShoppingCartSystem.Services.Admin
             _repository = repo;
         }
 
-        public async Task Delete(Product entity)
+        public async Task Delete(int id)
         {
-            await _repository.Delete(entity);
+            await _repository.Delete(id);
         }
 
         public async Task<IEnumerable<Product>> GetAll()

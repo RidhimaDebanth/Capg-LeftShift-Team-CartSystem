@@ -75,10 +75,10 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
             return Ok(category);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeleteCategory([FromBody] Category category)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteCategory( int id)
         {
-            await _categoryService.Delete(category);
+            await _categoryService.Delete(id);
             return Ok();
         }
 

@@ -65,9 +65,9 @@ namespace OnlineShoppingCartSystem.Repository.Admin
             return category;
         }
         
-        public async Task Delete(Category entity)
+        public async Task Delete(int id)
         {
-            var category = await _dbContext.Categories.FirstOrDefaultAsync(c => c.Id == entity.Id);
+            var category = await _dbContext.Categories.FirstOrDefaultAsync(c => c.Id == id);
             if (category != null)
             {
                 _dbContext.Remove(category);

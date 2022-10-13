@@ -18,7 +18,7 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
         }
 
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> GetAllProducts()
         {
             var products = await _productService.GetAll();
@@ -66,10 +66,10 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
             return Ok(product);
         }
 
-        [HttpDelete]
-        public async Task<IActionResult> DeleteProduct([FromBody] Product product)
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> DeleteProduct(int id)
         {
-            await _productService.Delete(product);
+            await _productService.Delete(id);
             return Ok();
         }
 

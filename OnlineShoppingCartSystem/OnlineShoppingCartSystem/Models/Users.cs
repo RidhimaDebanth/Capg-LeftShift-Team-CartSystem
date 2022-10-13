@@ -30,19 +30,19 @@ namespace OnlineShoppingCartSystem.Models
         [Display(Name="Phone Number")]
         public long PhoneNo { get; set; }
 
-        [Display(Name="Date of Birth")]
-        public DateTime DateOfBirth { get; set; }
+        //[Display(Name="Date of Birth")]
+        //public DateTime DateOfBirth { get; set; }
       
         [Required]
         [DataType(DataType.Password)]
         [StringLength(100, ErrorMessage ="Password length is inappropriate")]
         public string Password { get; set; }
        
-        [Required]
-        [Display(Name="Confirm Password")]
-        [StringLength (100, ErrorMessage ="Password length is inappropriate")]
-        [DataType(DataType.Password)]  
-        public string  ConfirmPass { get; set; }
+        //[Required]
+        //[Display(Name="Confirm Password")]
+        //[StringLength (100, ErrorMessage ="Password length is inappropriate")]
+        //[DataType(DataType.Password)]  
+        //public string  ConfirmPass { get; set; }
 
         
 

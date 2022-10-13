@@ -119,10 +119,10 @@ namespace OnlineShoppingCartSystem.Repository.Admin
             return product;
         }
 
-        public async Task Delete(Product entity)
+        public async Task Delete(int id)
         {
 
-            var product = await context.Products.FirstOrDefaultAsync(p => p.Id == entity.Id);
+            var product = await context.Products.FirstOrDefaultAsync(p => p.Id == id);
             if (product != null)
             {
                 context.Remove(product);

@@ -23,9 +23,9 @@ namespace OnlineShoppingCartSystem.Repository.Account
                 Address = entity.Address,
                 Email = entity.Email,
                 PhoneNo = entity.PhoneNo,
-                DateOfBirth = entity.DateOfBirth,
+                //DateOfBirth = entity.DateOfBirth,
                 Password = entity.Password,
-                ConfirmPass = entity.ConfirmPass,
+                //ConfirmPass = entity.ConfirmPass,
             };
             _dbContext.Users.Add(u);
             await _dbContext.SaveChangesAsync();
@@ -49,9 +49,9 @@ namespace OnlineShoppingCartSystem.Repository.Account
                 Address = u.Address,
                 Email = u.Email,
                 PhoneNo = u.PhoneNo,
-                DateOfBirth = u.DateOfBirth,
+                //DateOfBirth = u.DateOfBirth,
                 Password = u.Password,
-                ConfirmPass = u.ConfirmPass,
+                //ConfirmPass = u.ConfirmPass,
             }).ToListAsync();
             return users;
         }
@@ -67,9 +67,9 @@ namespace OnlineShoppingCartSystem.Repository.Account
                 Address = u.Address,
                 Email = u.Email,
                 PhoneNo = u.PhoneNo,
-                DateOfBirth = u.DateOfBirth,
+                //DateOfBirth = u.DateOfBirth,
                 Password = u.Password,
-                ConfirmPass = u.ConfirmPass,
+                //ConfirmPass = u.ConfirmPass,
 
             }).FirstOrDefaultAsync(); 
             return user;    
@@ -81,6 +81,7 @@ namespace OnlineShoppingCartSystem.Repository.Account
             var user = await _dbContext.Users.Where(u => u.Username == username).Select(u => new Users()
             {
                 Id = u.Id,
+                Role= u.Role,
                 Name = u.Name,
                 Username = u.Username,
                 Address = u.Address,

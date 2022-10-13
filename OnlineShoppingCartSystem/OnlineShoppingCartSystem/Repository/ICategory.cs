@@ -7,7 +7,7 @@
         Task<TEntity> GetByName(string name);
         Task<TEntity> Insert(TEntity entity);
         Task<TEntity> Update(TEntity entity);
-        Task Delete(TEntity entity);
+        Task Delete(int id);
         Task Save();
 
     }

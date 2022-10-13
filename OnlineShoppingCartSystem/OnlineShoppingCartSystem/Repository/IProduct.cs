@@ -8,7 +8,7 @@
         Task<IEnumerable<TEntity>>GetByCategoryId(int id);
         Task<TEntity> Insert(TEntity entity);
         Task<TEntity> Update(TEntity entity);
-        Task Delete(TEntity entity);
+        Task Delete(int id);
         Task Save();
     }
 }

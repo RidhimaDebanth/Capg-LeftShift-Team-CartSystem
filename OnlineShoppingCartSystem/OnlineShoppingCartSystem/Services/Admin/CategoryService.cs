@@ -12,10 +12,10 @@ namespace OnlineShoppingCartSystem.Services.Admin
             _repository = repo;
         }
 
-        public async Task Delete(Category entity)
+        public async Task Delete(int id)
         {
             //throw new NotImplementedException();
-             await _repository.Delete(entity);
+             await _repository.Delete(id);
             //return  await _repository.Delete(entity);
             
         }

@@ -43,7 +43,7 @@ namespace OnlineShoppingCartSystem.Controllers.Account
         {
             var CurrentUser = _dbContext.Users.FirstOrDefault(
                 u => u.Username == login.Username
-                && u.Password==login.Password);
+                && u.Password==login.Password && u.Role==login.Role);
             if (CurrentUser != null)
             {
                 return CurrentUser;
@@ -65,7 +65,7 @@ namespace OnlineShoppingCartSystem.Controllers.Account
             var token = new JwtSecurityToken(_configuration["JWT:Issuer"],
                                              _configuration["JWT:Audience"],
                                              claims,
-                                             expires: DateTime.Now.AddMinutes(20),
+                                             expires: DateTime.Now.AddDays(365),
                                              signingCredentials: credentials
                                              );
             return new JwtSecurityTokenHandler().WriteToken(token);
