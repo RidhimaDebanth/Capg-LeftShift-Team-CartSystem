@@ -7,42 +7,61 @@ namespace OnlineShoppingCartSystem.Repository.Customer
     {
         private readonly OnlineShoppingCartDBContext _dbContext;
         public OrderRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbcontext;
-       
-        
+
+
+        #region Get methods
+        //retrieving
         public async Task<IEnumerable<Orders>> GetAllOrders()
         {
-            //return await _dbContext.Orders.ToListAsync();
-            var orders = await _dbContext.Orders.Select(o => new Orders()
+            try
             {
-                Id = o.Id,
-                UsersId = o.UsersId,
-                ProductId = o.ProductId,
-                ProductName = o.ProductName,
-                ProductImage = o.ProductImage,
-                Product = o.Product,
-                ModeOfPayment = o.ModeOfPayment,
-                TotalAmount = o.TotalAmount,
-            }).ToListAsync();
-            return orders;
+                //return await _dbContext.Orders.ToListAsync();
+                var orders = await _dbContext.Orders.Select(o => new Orders()
+                {
+                    Id = o.Id,
+                    UsersId = o.UsersId,
+                    ProductId = o.ProductId,
+                    ProductName = o.ProductName,
+                    ProductImage = o.ProductImage,
+                    Product = o.Product,
+                    ModeOfPayment = o.ModeOfPayment,
+                    TotalAmount = o.TotalAmount,
+                }).ToListAsync();
+                return orders;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<IEnumerable<Orders>> GetOrdersByUserId(int userid)
         {
-            var orders = await _dbContext.Orders.Where(o => o.UsersId == userid).Select(o => new Orders()
+            try
             {
-                Id = o.Id,
-                UsersId = o.UsersId,
-                ProductId = o.ProductId,
-                ProductName = o.ProductName,
-                ProductImage = o.ProductImage,
-                Product = o.Product,
-                ModeOfPayment = o.ModeOfPayment,
-                TotalAmount = o.TotalAmount,
+                var orders = await _dbContext.Orders.Where(o => o.UsersId == userid).Select(o => new Orders()
+                {
+                    Id = o.Id,
+                    UsersId = o.UsersId,
+                    ProductId = o.ProductId,
+                    ProductName = o.ProductName,
+                    ProductImage = o.ProductImage,
+                    Product = o.Product,
+                    ModeOfPayment = o.ModeOfPayment,
+                    TotalAmount = o.TotalAmount,
 
-            }).ToListAsync();
-            return orders;
+                }).ToListAsync();
+                return orders;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
         }
 
+        #endregion
+       
+        
         //public async Task<Orders> InsertOrder(Orders entity)
         //{
         //    var order=new Orders()

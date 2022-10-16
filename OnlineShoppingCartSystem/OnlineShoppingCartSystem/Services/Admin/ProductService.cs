@@ -12,44 +12,108 @@ namespace OnlineShoppingCartSystem.Services.Admin
             _repository = repo;
         }
 
+        #region Delete product
         public async Task Delete(int id)
         {
-            await _repository.Delete(id);
+            try
+            {
+                await _repository.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
+        #endregion
 
+
+        #region Get methods
         public async Task<IEnumerable<Product>> GetAll()
         {
-            return await _repository.GetAll();
+            try
+            {
+                return await _repository.GetAll();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
         }
 
         public async Task<Product> GetById(int id)
         {
-           return await _repository.GetById(id);
+            try
+            {
+                return await _repository.GetById(id);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public  async Task<IEnumerable<Product> >GetByName(string name)
         {
-           return  await _repository.GetByName(name);
+            try
+            {
+                return await _repository.GetByName(name);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<IEnumerable<Product>> GetByCategoryId(int categoryId)
         {
-            return await _repository.GetByCategoryId(categoryId);
+            try
+            {
+                return await _repository.GetByCategoryId(categoryId);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
+        #endregion
+
+       
+        #region Add a product
         public async  Task<Product> Insert(Product entity)
         {
-           return await  _repository.Insert(entity);
+            try
+            {
+                return await _repository.Insert(entity);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+        #endregion
+
+
+        #region Update product
+        public async Task<Product> Update(Product entity)
+        {
+            try
+            {
+                return await _repository.Update(entity);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
+        #endregion
+      
         public async Task Save()
         {
              await _repository.Save();  
         }
 
-        public async Task<Product> Update(Product entity)
-        {
-            return  await _repository.Update(entity);
-        }
+       
     }
 }

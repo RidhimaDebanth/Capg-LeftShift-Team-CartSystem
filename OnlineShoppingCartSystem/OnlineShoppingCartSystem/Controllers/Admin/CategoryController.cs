@@ -23,9 +23,17 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
         [HttpPost]
         public async Task<IActionResult> InsertCategory([Bind()] Category entity)
         {
-            await _categoryService.Insert(entity);
-            await _categoryService.Save();
-            return (Ok());
+            try
+            {
+                await _categoryService.Insert(entity);
+                await _categoryService.Save();
+                return (Ok());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
 
         }
 
@@ -34,30 +42,53 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
         [HttpGet]
         public async Task<IActionResult> GetAllCategories()
         {
-            var categories = await _categoryService.GetAll();
-            return Ok(categories);
+            try
+            {
+                var categories = await _categoryService.GetAll();
+                return Ok(categories);
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetCategoryById([FromQuery] int id)
         {
-            var category = await _categoryService.GetById(id);
-            if (category == null)
-            {
-                return NotFound();
+            try {
+                var category = await _categoryService.GetById(id);
+                if (category == null)
+                {
+                    return NotFound();
+                }
+                return Ok(category);
             }
-            return Ok(category);
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
         [HttpGet("{name}")]
         public async Task<IActionResult> GetCategoryByName(string name)
         {
-            var category = await _categoryService.GetByName(name);
-            if (category == null)
+            try
             {
-                return NotFound();
+                var category = await _categoryService.GetByName(name);
+                if (category == null)
+                {
+                    return NotFound();
+                }
+                return Ok(category);
             }
-            return Ok(category);
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message) ;
+            }
+            
         }
 
         //[HttpPost]
@@ -71,15 +102,31 @@ namespace OnlineShoppingCartSystem.Controllers.Admin
         [HttpPut]
         public async Task<IActionResult> UpdateCategory([FromBody] Category category)
         {
-            await _categoryService.Update(category);
-            return Ok(category);
+            try
+            {
+                await _categoryService.Update(category);
+                return Ok(category);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+           
         }
 
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCategory( int id)
         {
-            await _categoryService.Delete(id);
-            return Ok();
+            try
+            {
+                await _categoryService.Delete(id);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
 

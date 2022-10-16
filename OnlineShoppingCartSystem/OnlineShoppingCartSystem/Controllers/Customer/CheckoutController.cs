@@ -22,8 +22,16 @@ namespace OnlineShoppingCartSystem.Controllers.Customer
         public async Task<IActionResult> UpdateDetails([FromBody] Users users )
 
         {
-          await _checkoutService.UpdateDetails(users);
-          return Ok(users);
+            try
+            {
+                await _checkoutService.UpdateDetails(users);
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+          
         }
 
        

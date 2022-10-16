@@ -1,5 +1,6 @@
 using FluentAssertions.Common;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,6 +15,7 @@ using OnlineShoppingCartSystem.Repository.Customer;
 using OnlineShoppingCartSystem.Services.Account;
 using OnlineShoppingCartSystem.Services.Admin;
 using OnlineShoppingCartSystem.Services.Customer;
+using System.Net;
 using System.Text;
 
 
@@ -125,8 +127,30 @@ var app = builder.Build();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
+    app.UseDeveloperExceptionPage(); //for development environment
     app.UseSwagger();
     app.UseSwaggerUI();
+}
+else // for production environment //using built-in middleware
+{
+    app.UseExceptionHandler(
+        options =>
+        {
+            options.Run(
+                async context =>
+                {
+                    context.Response.StatusCode = (int)HttpStatusCode.InternalServerError;
+                    var ex = context.Features.Get<IExceptionHandlerFeature>();
+                    if (ex != null)
+                    {
+                        await context.Response.WriteAsync(ex.Error.Message);
+                    }
+
+                }
+
+              );
+        }
+      );
 }
 
 app.UseCors("default"); 

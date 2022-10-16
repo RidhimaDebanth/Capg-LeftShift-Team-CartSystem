@@ -21,17 +21,33 @@ namespace OnlineShoppingCartSystem.Controllers.Account
         [HttpPost]
         public async Task<IActionResult> Insert([Bind()] Users entity)
         {
-            var r = await _registerService.Insert(entity);
-            await _registerService.Save();
-            return Ok(r);
+            try
+            {
+                var r = await _registerService.Insert(entity);
+                await _registerService.Save();
+                return Ok(r);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
         [HttpGet]
         [Authorize]
         public async Task<IActionResult> GetAllUsers()
         {
-            var users = await _registerService.GetAllUsers();
-            return Ok(users);
+            try
+            {
+                var users = await _registerService.GetAllUsers();
+                return Ok(users);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+           
         }
 
 
@@ -40,12 +56,20 @@ namespace OnlineShoppingCartSystem.Controllers.Account
         [HttpGet("{id:int}")]
         public async Task<IActionResult> GetByUserId( int id)
         {
-            var user = await _registerService.GetByUserId(id);
-            if (user == null)
+            try
             {
-                return NotFound();
+                var user = await _registerService.GetByUserId(id);
+                if (user == null)
+                {
+                    return NotFound();
+                }
+                return Ok(user);
             }
-            return Ok(user);
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
 
@@ -54,19 +78,35 @@ namespace OnlineShoppingCartSystem.Controllers.Account
         [HttpGet("{username}")]
         public async Task<IActionResult>GetByUsername(string username)
         {
-            var user = await _registerService.GetByUsername(username);
-            if(user == null)
+            try
             {
-                return NotFound();
+                var user = await _registerService.GetByUsername(username);
+                if (user == null)
+                {
+                    return NotFound();
+                }
+                return Ok(user);
             }
-            return Ok(user);
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
         [HttpDelete]
         public async Task<IActionResult> DeleteUserAccount([FromBody] Users user)
         {
-            await _registerService.DeleteUserAccount(user);
-            return Ok();
+            try
+            {
+                await _registerService.DeleteUserAccount(user);
+                return Ok();
+            }
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
     }
 }

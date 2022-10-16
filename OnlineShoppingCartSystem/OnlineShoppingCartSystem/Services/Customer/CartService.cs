@@ -12,11 +12,22 @@ namespace OnlineShoppingCartSystem.Services.Customer
             _repository = repo;
         }
 
+
+        #region Get Cart 
         public async Task<IEnumerable<Product>> GetCart()
         {
-            return  await _repository.GetCart();
+            try
+            {
+                return await _repository.GetCart();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
+        #endregion
+     
         public async  Task Save()
         {
             await _repository.Save();

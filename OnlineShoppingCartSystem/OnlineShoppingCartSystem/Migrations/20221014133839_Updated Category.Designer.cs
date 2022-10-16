@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using OnlineShoppingCartSystem.Models;
 
@@ -10,9 +11,10 @@ using OnlineShoppingCartSystem.Models;
 namespace OnlineShoppingCartSystem.Migrations
 {
     [DbContext(typeof(OnlineShoppingCartDBContext))]
-    partial class OnlineShoppingCartDBContextModelSnapshot : ModelSnapshot
+    [Migration("20221014133839_Updated Category")]
+    partial class UpdatedCategory
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

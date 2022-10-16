@@ -11,14 +11,27 @@ namespace OnlineShoppingCartSystem.Services.Customer
         {
             _repository = repo;
         }
+
+        #region Update shipping details
+        public async Task<Users> UpdateDetails(Users entity)
+        {
+            try
+            {
+                return await _repository.UpdateDetails(entity);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
+        #endregion
+      
         public async Task Save()
         {
             await _repository.Save();
         }
 
-        public async Task<Users> UpdateDetails(Users entity)
-        {
-            return await _repository.UpdateDetails(entity);
-        }
+       
     }
 }

@@ -28,15 +28,23 @@ namespace OnlineShoppingCartSystem.Controllers.Account
         [HttpPost]
         public IActionResult Login([FromBody] Login login)
         {
-            var user = Authenticate(login);
-            if (user != null)
+            try
             {
-                var token = Generate(user);
-                var obj = new { Token = token };
-                return Ok(obj);
+                var user = Authenticate(login);
+                if (user != null)
+                {
+                    var token = Generate(user);
+                    var obj = new { Token = token };
+                    return Ok(obj);
 
+                }
+                return Ok("Failure");
             }
-            return Ok("Failure");
+            catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
         }
 
         private Users Authenticate(Login login)

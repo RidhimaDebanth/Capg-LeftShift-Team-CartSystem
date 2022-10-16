@@ -10,5 +10,7 @@ namespace OnlineShoppingCartSystem.Models
         [Required(ErrorMessage = "Name field is required")]
         [Display(Name = "Category Name")]
         public string CategoryName { get; set; }
+
+        public string CategoryImage { get; set; }
     }
 }

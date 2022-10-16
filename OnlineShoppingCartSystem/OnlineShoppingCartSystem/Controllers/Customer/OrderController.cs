@@ -19,20 +19,35 @@ namespace OnlineShoppingCartSystem.Controllers.Customer
         [HttpGet]
         public async Task<IActionResult> GetAllOrders()
         {
-            var orders = await _orderService.GetAllOrders();
-            return Ok(orders);
+            try
+            {
+                var orders = await _orderService.GetAllOrders();
+                return Ok(orders);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+            
                                           
         }
 
         [HttpGet("{userid:int}")]
         public async Task<IActionResult> GetOrdersById(int userid)
         {
-            var order = await _orderService.GetOrdersByUserId(userid);
-            if(order == null)
+            try
             {
-                return NotFound();  
+                var order = await _orderService.GetOrdersByUserId(userid);
+                if (order == null)
+                {
+                    return NotFound();
+                }
+                return Ok(order);
             }
-            return Ok(order);
+           catch(Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         //[HttpPost]

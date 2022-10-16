@@ -8,19 +8,30 @@ namespace OnlineShoppingCartSystem.Repository.Customer
         private readonly OnlineShoppingCartDBContext _dbContext;
         public CheckoutRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbcontext;
 
+       
+        #region Update user details
+        //update shipping details 
         public async Task<Users> UpdateDetails(Users entity)
         {
-            var users = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id==entity.Id);
-            if(users!=null)
+            try
             {
-                users.Name = entity.Name;
-                users.PhoneNo=entity.PhoneNo;
-                users.Address = entity.Address;
-                _dbContext.SaveChanges();
+                var users = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == entity.Id);
+                if (users != null)
+                {
+                    users.Name = entity.Name;
+                    users.PhoneNo = entity.PhoneNo;
+                    users.Address = entity.Address;
+                    _dbContext.SaveChanges();
+                }
+                return users;
             }
-            return users;
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
-
+        #endregion 
+       
         public async Task Save()
         {
             await  _dbContext.SaveChangesAsync();

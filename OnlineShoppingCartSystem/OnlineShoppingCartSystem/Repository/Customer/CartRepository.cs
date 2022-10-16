@@ -7,13 +7,21 @@ namespace OnlineShoppingCartSystem.Repository.Customer
     {
         private readonly OnlineShoppingCartDBContext _dbContext;
         public CartRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbcontext;
-       
 
+        #region GetCart
+        //get cart products
         public async Task<IEnumerable<Product>> GetCart()
         {
-            return await _dbContext.Products.ToListAsync();
+            try
+            {
+                return await _dbContext.Products.ToListAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
-
+        #endregion
         public Task Save()
         {
             throw new NotImplementedException();

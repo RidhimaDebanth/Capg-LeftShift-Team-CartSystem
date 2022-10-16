@@ -13,32 +13,80 @@ namespace OnlineShoppingCartSystem.Services.Account
             _repository = repo;
         }
 
+        #region Add Customer
         public async Task<Users> Insert(Users entity)
         {
-            //throw new NotImplementedException();
-            return await _repository.Insert(entity);
+            try
+            {
+                //throw new NotImplementedException();
+                return await _repository.Insert(entity);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
+
+        #endregion
+
+        #region Get methods
+        //retrieving of data
         public async Task<IEnumerable<Users>> GetAllUsers()
         {
-            return await _repository.GetAllUsers();
+            try
+            {
+                return await _repository.GetAllUsers();
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message, ex);
+            }
         }
 
         public async Task<Users> GetByUserId(int id)
         {
-            //throw new NotImplementedException();
-            return  await _repository.GetByUserId(id);
+            try
+            {
+                //throw new NotImplementedException();
+                return await _repository.GetByUserId(id);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
        
         public async Task<Users> GetByUsername(string username)
         {
-            return await _repository.GetByUsername(username);
+            try
+            {
+                return await _repository.GetByUsername(username);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
+
+        #endregion
+
+        #region Delete User Account
+        //remove user account
         public async Task DeleteUserAccount (Users entity)
         {
-            await _repository.DeleteUserAccount(entity);
+            try
+            {
+                await _repository.DeleteUserAccount(entity);
+            }
+            catch(Exception ex)
+            {
+                throw new Exception (ex.Message, ex);
+            }
         }
-        public  Task Save()
+        #endregion
+
+        public Task Save()
         {
             //throw new NotImplementedException();
             return  _repository.Save();
