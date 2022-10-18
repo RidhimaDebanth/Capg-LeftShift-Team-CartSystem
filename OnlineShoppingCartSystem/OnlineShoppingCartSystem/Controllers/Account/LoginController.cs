@@ -51,7 +51,7 @@ namespace OnlineShoppingCartSystem.Controllers.Account
         {
             var CurrentUser = _dbContext.Users.FirstOrDefault(
                 u => u.Username == login.Username
-                && u.Password==login.Password && u.Role==login.Role);
+                && u.Password==login.Password );
             if (CurrentUser != null)
             {
                 return CurrentUser;
@@ -79,6 +79,7 @@ namespace OnlineShoppingCartSystem.Controllers.Account
             return new JwtSecurityTokenHandler().WriteToken(token);
 
         }
+
     }
 }
 

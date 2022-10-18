@@ -73,11 +73,11 @@ namespace OnlineShoppingCartSystem.Services.Account
 
         #region Delete User Account
         //remove user account
-        public async Task DeleteUserAccount (Users entity)
+        public async Task DeleteUserAccount (int id)
         {
             try
             {
-                await _repository.DeleteUserAccount(entity);
+                await _repository.DeleteUserAccount(id);
             }
             catch(Exception ex)
             {

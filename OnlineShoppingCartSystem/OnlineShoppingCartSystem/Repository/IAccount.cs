@@ -6,7 +6,7 @@
         Task<TEntity> Insert(TEntity entity);
         Task<TEntity> GetByUserId(int id);
         Task<TEntity> GetByUsername(string username);
-        Task DeleteUserAccount(TEntity entity);
+        Task DeleteUserAccount(int id);
 
         Task Save();
     }

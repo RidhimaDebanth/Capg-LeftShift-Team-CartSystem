@@ -135,12 +135,12 @@ namespace OnlineShoppingCartSystem.Repository.Account
 
         #region Delete user account
         //Deleting user account
-        public async Task DeleteUserAccount(Users entity)
+        public async Task DeleteUserAccount(int id)
         {
             try
             {
                 //throw new NotImplementedException();
-                var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == entity.Id);
+                var user = await _dbContext.Users.FirstOrDefaultAsync(u => u.Id == id);
                 if (user != null)
                 {
                     _dbContext.Remove(user);

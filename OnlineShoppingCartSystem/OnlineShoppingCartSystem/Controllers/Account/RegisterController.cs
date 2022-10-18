@@ -95,11 +95,11 @@ namespace OnlineShoppingCartSystem.Controllers.Account
         }
 
         [HttpDelete]
-        public async Task<IActionResult> DeleteUserAccount([FromBody] Users user)
+        public async Task<IActionResult> DeleteUserAccount( int id)
         {
             try
             {
-                await _registerService.DeleteUserAccount(user);
+                await _registerService.DeleteUserAccount(id);
                 return Ok();
             }
             catch(Exception ex)
