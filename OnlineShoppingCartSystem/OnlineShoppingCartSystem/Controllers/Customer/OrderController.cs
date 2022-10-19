@@ -16,6 +16,25 @@ namespace OnlineShoppingCartSystem.Controllers.Customer
             _orderService = orderService;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> AddOrder([Bind()] Orders entity)
+        {
+            try
+            {
+                await _orderService.AddOrder(entity);
+                await _orderService.Save();
+                return (Ok());
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
+
+
+
+        }
+
+
         [HttpGet]
         public async Task<IActionResult> GetAllOrders()
         {

@@ -8,6 +8,29 @@ namespace OnlineShoppingCartSystem.Repository.Customer
         private readonly OnlineShoppingCartDBContext _dbContext;
         public OrderRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbcontext;
 
+        public async Task<Orders> AddOrder(Orders entity)
+        {
+            try
+            {
+                var o = new Orders()
+                {
+                    Id = entity.Id,
+                    UsersId = entity.UsersId,
+                    DateOfOrder = entity.DateOfOrder,
+                    ModeOfPayment=entity.ModeOfPayment,
+                    BillAmount=entity.BillAmount,
+
+                };
+               _dbContext.Orders.Add(o);
+                await _dbContext.SaveChangesAsync();
+                return o;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
 
         #region Get methods
         //retrieving
@@ -20,12 +43,13 @@ namespace OnlineShoppingCartSystem.Repository.Customer
                 {
                     Id = o.Id,
                     UsersId = o.UsersId,
-                    ProductId = o.ProductId,
-                    ProductName = o.ProductName,
-                    ProductImage = o.ProductImage,
-                    Product = o.Product,
+                    DateOfOrder = o.DateOfOrder,
+                    //ProductId = o.ProductId,
+                    //ProductName = o.ProductName,
+                    //ProductImage = o.ProductImage,
+                    //Product = o.Product,
                     ModeOfPayment = o.ModeOfPayment,
-                    TotalAmount = o.TotalAmount,
+                    BillAmount = o.BillAmount,
                 }).ToListAsync();
                 return orders;
             }
@@ -43,12 +67,13 @@ namespace OnlineShoppingCartSystem.Repository.Customer
                 {
                     Id = o.Id,
                     UsersId = o.UsersId,
-                    ProductId = o.ProductId,
-                    ProductName = o.ProductName,
-                    ProductImage = o.ProductImage,
-                    Product = o.Product,
+                    DateOfOrder= o.DateOfOrder,
+                    //ProductId = o.ProductId,
+                    //ProductName = o.ProductName,
+                    //ProductImage = o.ProductImage,
+                    //Product = o.Product,
                     ModeOfPayment = o.ModeOfPayment,
-                    TotalAmount = o.TotalAmount,
+                    BillAmount = o.BillAmount,
 
                 }).ToListAsync();
                 return orders;

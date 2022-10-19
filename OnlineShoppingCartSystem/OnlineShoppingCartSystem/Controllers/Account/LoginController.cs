@@ -38,11 +38,11 @@ namespace OnlineShoppingCartSystem.Controllers.Account
                     return Ok(obj);
 
                 }
-                return Ok("Failure");
+                return BadRequest("You have not registered");
             }
-            catch(Exception ex)
+            catch(Exception)
             {
-                return BadRequest(ex.Message);
+                return BadRequest("You have not registered");
             }
             
         }

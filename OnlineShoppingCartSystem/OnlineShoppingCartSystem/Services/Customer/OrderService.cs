@@ -13,6 +13,18 @@ namespace OnlineShoppingCartSystem.Services.Customer
 
         }
 
+        public async Task<Orders> AddOrder(Orders entity)
+        {
+            try
+            {
+                return await _repository.AddOrder(entity);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
+
         #region Get methods
         public async Task<IEnumerable<Orders>> GetAllOrders()
         {
