@@ -51,7 +51,7 @@ namespace OnlineShoppingCartSystem.Controllers.Account
         {
             var CurrentUser = _dbContext.Users.FirstOrDefault(
                 u => u.Username == login.Username
-                && u.Password==login.Password );
+                && u.Password==login.Password && u.Role==login.Role);
             if (CurrentUser != null)
             {
                 return CurrentUser;
