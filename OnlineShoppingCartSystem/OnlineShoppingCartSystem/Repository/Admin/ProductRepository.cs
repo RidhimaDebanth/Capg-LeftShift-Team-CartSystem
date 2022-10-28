@@ -42,9 +42,17 @@ namespace OnlineShoppingCartSystem.Repository.Admin
         }
         #endregion
 
-      
+
         #region Get methods
         //Retrieving data
+        /// <summary>
+        /// 1.Retrieving all products.
+        /// 2.Retrieving a particular product by its category id.
+        /// 3.Retrieving a particular product by its name.
+        /// 4.Retrieving a particular product by its category id.
+        /// </summary>
+        /// <returns>alist, a particular record</returns>
+        /// <exception cref="Exception"></exception>
 
         public async Task<IEnumerable<Product>> GetAll()
         {

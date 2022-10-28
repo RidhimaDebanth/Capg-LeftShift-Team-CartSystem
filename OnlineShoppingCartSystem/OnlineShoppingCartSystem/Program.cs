@@ -104,8 +104,6 @@ builder.Services.AddScoped<ICategory<Category>, CategoryRepository>();
 builder.Services.AddScoped<CategoryService, CategoryService>();
 builder.Services.AddScoped<IProduct<Product>, ProductRepository>();
 builder.Services.AddScoped<ProductService, ProductService>();
-builder.Services.AddScoped<ICart<Product, int>, CartRepository>();
-builder.Services.AddScoped<CartService, CartService >();
 builder.Services.AddScoped<ICheckout<Users>, CheckoutRepository>();
 builder.Services.AddScoped<CheckoutService, CheckoutService>();
 builder.Services.AddScoped<IOrder<Orders>, OrderRepository>();

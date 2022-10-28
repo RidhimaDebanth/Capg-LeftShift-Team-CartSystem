@@ -13,6 +13,8 @@ namespace OnlineShoppingCartSystem.Services.Customer
 
         }
 
+        #region Adding an order
+        //adding an order to the database
         public async Task<Orders> AddOrder(Orders entity)
         {
             try
@@ -24,6 +26,7 @@ namespace OnlineShoppingCartSystem.Services.Customer
                 throw new Exception(ex.Message);
             }
         }
+        #endregion
 
         #region Get methods
         public async Task<IEnumerable<Orders>> GetAllOrders()

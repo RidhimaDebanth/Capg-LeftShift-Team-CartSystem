@@ -10,7 +10,7 @@ namespace OnlineShoppingCartSystem.Repository.Admin
 
 
         #region Category addition
-        //Adding a new category
+        //Adding a new category to the database
         public async Task<Category> Insert(Category entity)
         {
             try
@@ -29,6 +29,13 @@ namespace OnlineShoppingCartSystem.Repository.Admin
 
         #region Get methods
         //Retrieving data
+        /// <summary>
+        /// 1.Retrieving all categories.
+        /// 2.Retrieving a particular category by its category id.
+        /// 3.Retrieving a particular category by its name.
+        /// </summary>
+        /// <returns>a list, a particular record </returns>
+        /// <exception cref="Exception"></exception>
         public async Task<IEnumerable<Category>> GetAll()
         {
             try
@@ -108,7 +115,7 @@ namespace OnlineShoppingCartSystem.Repository.Admin
         #endregion
 
         #region Delete category
-        //remove a category 
+        //removing a category 
         public async Task Delete(int id)
         {
             try

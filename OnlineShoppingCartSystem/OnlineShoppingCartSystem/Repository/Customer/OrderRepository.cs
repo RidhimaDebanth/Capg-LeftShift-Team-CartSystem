@@ -8,6 +8,8 @@ namespace OnlineShoppingCartSystem.Repository.Customer
         private readonly OnlineShoppingCartDBContext _dbContext;
         public OrderRepository(OnlineShoppingCartDBContext _dbcontext) => this._dbContext = _dbcontext;
 
+        #region Add Order
+        //Summary:Order Details will be added to the database
         public async Task<Orders> AddOrder(Orders entity)
         {
             try
@@ -30,10 +32,17 @@ namespace OnlineShoppingCartSystem.Repository.Customer
                 throw new Exception(ex.Message);
             }
         }
-
+        #endregion
 
         #region Get methods
-        //retrieving
+        //Retrieving data
+        /// <summary>
+        /// 1.All orders from the database.
+        /// 2.Retrieving order details of a particular user
+        /// </summary>
+        /// <returns>a list, a particular record</returns>
+        /// <exception cref="Exception"></exception>
+
         public async Task<IEnumerable<Orders>> GetAllOrders()
         {
             try
@@ -59,6 +68,7 @@ namespace OnlineShoppingCartSystem.Repository.Customer
             }
         }
 
+        
         public async Task<IEnumerable<Orders>> GetOrdersByUserId(int userid)
         {
             try

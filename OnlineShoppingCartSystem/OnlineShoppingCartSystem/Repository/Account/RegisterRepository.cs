@@ -45,10 +45,17 @@ namespace OnlineShoppingCartSystem.Repository.Account
 
         }
         #endregion
-       
-        
+
+
         #region Get methods
         //Retrieving data
+        /// <summary>
+        /// 1.Retrieving all the users.
+        /// 2.Retrieving a particular user by its  id.
+        /// 3.Retrieving a particular user by its name.
+        /// </summary>
+        /// <returns> a list ,a particular record </returns>
+        ///<exception cref="Exception"</exception>
         public async Task<IEnumerable<Users>> GetAllUsers()
         {
             try
